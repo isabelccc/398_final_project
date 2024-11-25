@@ -20,5 +20,6 @@ This project analyzes a dataset of recipes and ratings to uncover key patterns a
 - Final model improvements
 
 ## About
-Author: Isabel C  
-Email: [Your email]
+Author: xiulin Chen, hanlu Wu
+Email: xiulin@umich.edu , hanluwu@umich.edu
+
