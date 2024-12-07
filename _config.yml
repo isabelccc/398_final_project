@@ -54,3 +54,6 @@ defaults:
 sass:
   sass_dir: _sass
   style: compressed
+hero:
+  enable: true
+  hero_image: "/images/01.jpg"  # Update the path to your hero image
