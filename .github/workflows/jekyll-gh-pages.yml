@@ -50,3 +50,10 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+  hero:
+  enable: true
+  hero_title: "Welcome to My Portfolio!"
+  hero_description: "Explore my projects and creative works."
+  hero_button_text: "See More"
+  hero_button_link: "/projects/"
+  hero_image: "/images/01.jpg"  # Add your image path here
