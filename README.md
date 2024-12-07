@@ -23,3 +23,5 @@ This project analyzes a dataset of recipes and ratings to uncover key patterns a
 Author: xiulin Chen, hanlu Wu
 Email: xiulin@umich.edu , hanluwu@umich.edu
 
+![About Image](/images/03.jpg)
+
