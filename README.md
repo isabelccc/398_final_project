@@ -82,9 +82,10 @@ Bivariate Analysis
 </iframe>
 
 
-cleaned data display 
+```py
 relevant_data_head = relevant_data.head().to_markdown(index=False)
 merged_data_head = merged_data.head().to_markdown(index=False)
+```
 
 # Create the Markdown content
 markdown_content = f"""
