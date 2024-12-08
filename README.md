@@ -136,11 +136,83 @@ Below is a sample of the merged dataset:
 
 
 <div style="max-width: 800px; overflow-x: auto;">
-| name                                  | recipe_id | minutes | contributor_id | submitted   | tags                                                                                             | nutrition                   | n_steps | steps                                           | description                        | ingredients                              | n_ingredients | user_id  | date       | rating | review                                     | rating_average | calories | total_fat_pdv | sugar_pdv | protein_pdv |
-|:--------------------------------------|----------:|--------:|---------------:|:------------|:------------------------------------------------------------------------------------------------|:----------------------------|--------:|:------------------------------------------------|:-----------------------------------|:-----------------------------------------|--------------:|---------:|:-----------|-------:|:------------------------------------------|---------------:|---------:|-------------:|----------:|------------:|
-| 1 brownies in the world best ever     |    333281 |      40 |         985201 | 2008-10-27  | ['60-minutes-or-less', 'time-to-make', ...]                                                    | [138.4, 10.0, 50.0, ...]    |      10 | ['heat the oven...', 'line...', ...]          | These are the most chocolatey...   | ['bittersweet chocolate', 'unsalted ... |             9 |   386585 | 2008-11-19 |      4 | These were pretty good, but...             |              4 |    138.4 |           10  |       50 |           3 |
-| 1 in canada chocolate chip cookies    |    453467 |      45 |        1848091 | 2011-04-11  | ['60-minutes-or-less', 'time-to-make', ...]                                                    | [595.1, 46.0, 211.0, ...]   |      12 | ['pre-heat oven...', 'in a mixing...', ...]  | This is the recipe we use...       | ['white sugar', 'brown sugar', ...]      |            11 |   424680 | 2012-01-26 |      5 | Originally I was gonna...                  |              5 |    595.1 |           46  |      211 |          13 |
+  <table>
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>recipe_id</th>
+        <th>minutes</th>
+        <th>contributor_id</th>
+        <th>submitted</th>
+        <th>tags</th>
+        <th>nutrition</th>
+        <th>n_steps</th>
+        <th>steps</th>
+        <th>description</th>
+        <th>ingredients</th>
+        <th>n_ingredients</th>
+        <th>user_id</th>
+        <th>date</th>
+        <th>rating</th>
+        <th>review</th>
+        <th>rating_average</th>
+        <th>calories</th>
+        <th>total_fat_pdv</th>
+        <th>sugar_pdv</th>
+        <th>protein_pdv</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1 brownies in the world best ever</td>
+        <td>333281</td>
+        <td>40</td>
+        <td>985201</td>
+        <td>2008-10-27</td>
+        <td>['60-minutes-or-less', 'time-to-make', ...]</td>
+        <td>[138.4, 10.0, 50.0, ...]</td>
+        <td>10</td>
+        <td>['heat the oven...', 'line...', ...]</td>
+        <td>These are the most chocolatey...</td>
+        <td>['bittersweet chocolate', 'unsalted ...]</td>
+        <td>9</td>
+        <td>386585</td>
+        <td>2008-11-19</td>
+        <td>4</td>
+        <td>These were pretty good, but...</td>
+        <td>4</td>
+        <td>138.4</td>
+        <td>10</td>
+        <td>50</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>1 in canada chocolate chip cookies</td>
+        <td>453467</td>
+        <td>45</td>
+        <td>1848091</td>
+        <td>2011-04-11</td>
+        <td>['60-minutes-or-less', 'time-to-make', ...]</td>
+        <td>[595.1, 46.0, 211.0, ...]</td>
+        <td>12</td>
+        <td>['pre-heat oven...', 'in a mixing...', ...]</td>
+        <td>This is the recipe we use...</td>
+        <td>['white sugar', 'brown sugar', ...]</td>
+        <td>11</td>
+        <td>424680</td>
+        <td>2012-01-26</td>
+        <td>5</td>
+        <td>Originally I was gonna...</td>
+        <td>5</td>
+        <td>595.1</td>
+        <td>46</td>
+        <td>211</td>
+        <td>13</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
 
                                                                                                                                                                                                                                                     
 
