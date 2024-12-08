@@ -51,6 +51,39 @@ To prepare the dataset for analysis, we applied the following data cleaning step
      - `review_length`: The number of words in each review.
      - `num_tags`: The number of tags associated with each recipe.
 
+## Visualization
+
+Univariate Analysis
+<iframe 
+    src="image1.html" 
+    width="1000" 
+    height="600" 
+    style="border: none;">
+</iframe>
+
+The most common tags, such as "preparation," "time-to-make," and "course," are general descriptors commonly used to categorize recipes. These tags likely reflect structural organization rather than specific culinary attributes.
+Tags like "main-ingredient" and "dietary" are prominent, indicating that recipes are often classified based on their primary components or dietary considerations. This aligns with the importance of catering to specific dietary needs (e.g., vegetarian, gluten-free) in recipe datasets.
+The tags "easy" and "occasion" highlight that simplicity and context (e.g., festive or special events) are important aspects of recipe selection. These attributes may reflect users' preferences for quick and contextually appropriate dishes.
+
+Bivariate Analysis
+
+<iframe 
+    src="image2.html" 
+    width="1000" 
+    height="600" 
+    style="border: none;">
+</iframe>
+
+<iframe 
+    src="img3.html" 
+    width="1000" 
+    height="600" 
+    style="border: none;">
+</iframe>
+
+
+
+
 ---
 
 ## Prediction Problem
@@ -121,14 +154,12 @@ The primary evaluation metric for this regression problem is **Root Mean Squared
 
 | Metric              | Baseline Model | Final Model |
 |---------------------|----------------|-------------|
-| **Training RMSE**   | 0.74           | 0.61        |
-| **Test RMSE**       | 0.78           | 0.65        |
+| **RMSE**            | 0.74          | 0.70        |
+
 
 ---
 
-## Visualization
 
-![Residuals Plot](/images/03.jpg)
 
 ---
 
