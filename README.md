@@ -82,6 +82,9 @@ Bivariate Analysis
 </iframe>
 
 
+cleaned data display 
+print(counts[['Quarter', 'Count']].head().to_markdown(index=False))
+
 
 
 ---
