@@ -135,7 +135,6 @@ Below is a sample of the merged dataset:
 Below is a sample of the merged dataset:
 
 
-
 <div style="max-width: 800px; overflow-x: auto;">
 | name                                  | recipe_id | minutes | contributor_id | submitted   | tags                                                                                             | nutrition                   | n_steps | steps                                           | description                        | ingredients                              | n_ingredients | user_id  | date       | rating | review                                     | rating_average | calories | total_fat_pdv | sugar_pdv | protein_pdv |
 |:--------------------------------------|----------:|--------:|---------------:|:------------|:------------------------------------------------------------------------------------------------|:----------------------------|--------:|:------------------------------------------------|:-----------------------------------|:-----------------------------------------|--------------:|---------:|:-----------|-------:|:------------------------------------------|---------------:|---------:|-------------:|----------:|------------:|
