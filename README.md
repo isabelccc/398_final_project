@@ -83,7 +83,19 @@ Bivariate Analysis
 
 
 cleaned data display 
-print(counts[['Quarter', 'Count']].head().to_markdown(index=False))
+relevant_data_head = relevant_data.head().to_markdown(index=False)
+merged_data_head = merged_data.head().to_markdown(index=False)
+
+# Create the Markdown content
+markdown_content = f"""
+# Data Cleaning
+
+## Relevant Data Head
+
+Below is the head of the cleaned relevant data:
+
+```markdown
+{relevant_data_head}
 
 
 
