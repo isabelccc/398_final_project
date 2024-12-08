@@ -133,13 +133,15 @@ Below is a sample of the merged dataset:
 # Merged Data Sample
 
 Below is a sample of the merged dataset:
+
+
 <div style="max-width: 800px; overflow-x: auto;">
 | name                                  | recipe_id | minutes | contributor_id | submitted   | tags                                                                                             | nutrition                   | n_steps | steps                                           | description                        | ingredients                              | n_ingredients | user_id  | date       | rating | review                                     | rating_average | calories | total_fat_pdv | sugar_pdv | protein_pdv |
 |:--------------------------------------|----------:|--------:|---------------:|:------------|:------------------------------------------------------------------------------------------------|:----------------------------|--------:|:------------------------------------------------|:-----------------------------------|:-----------------------------------------|--------------:|---------:|:-----------|-------:|:------------------------------------------|---------------:|---------:|-------------:|----------:|------------:|
 | 1 brownies in the world best ever     |    333281 |      40 |         985201 | 2008-10-27  | ['60-minutes-or-less', 'time-to-make', ...]                                                    | [138.4, 10.0, 50.0, ...]    |      10 | ['heat the oven...', 'line...', ...]          | These are the most chocolatey...   | ['bittersweet chocolate', 'unsalted ... |             9 |   386585 | 2008-11-19 |      4 | These were pretty good, but...             |              4 |    138.4 |           10  |       50 |           3 |
 | 1 in canada chocolate chip cookies    |    453467 |      45 |        1848091 | 2011-04-11  | ['60-minutes-or-less', 'time-to-make', ...]                                                    | [595.1, 46.0, 211.0, ...]   |      12 | ['pre-heat oven...', 'in a mixing...', ...]  | This is the recipe we use...       | ['white sugar', 'brown sugar', ...]      |            11 |   424680 | 2012-01-26 |      5 | Originally I was gonna...                  |              5 |    595.1 |           46  |      211 |          13 |
-
-</div>                                                                                                                                                                                                                                                       
+</div>
+                                                                                                                                                                                                                                                    
 
 ### Cleaned Data display
 
