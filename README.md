@@ -364,14 +364,43 @@ Numerical features were standardized using `StandardScaler`.
 ---
 
 ## Results of Cross-Validation
-| Model                 | Mean RMSE ± Std Dev |
-|------------------------|---------------------|
-| Random Forest          | 0.71 ± 0.01        |
-| Gradient Boosting      | 0.72 ± 0.02        |
-| Support Vector Regressor (SVR) | 0.74 ± 0.02 |
-| Ridge Regression       | 0.72 ± 0.02        |
-| Lasso Regression       | 0.72 ± 0.02        |
-| Linear Regression      | 0.72 ± 0.02        |
+<div style="max-width: 800px; overflow-x: auto;">
+  <table>
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Mean RMSE ± Std Dev</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Linear Regression</td>
+        <td>0.72 ± 0.02</td>
+      </tr>
+      <tr>
+        <td>Random Forest</td>
+        <td>0.71 ± 0.01</td>
+      </tr>
+      <tr>
+        <td>Gradient Boosting</td>
+        <td>0.72 ± 0.02</td>
+      </tr>
+      <tr>
+        <td>Support Vector Regressor (SVR)</td>
+        <td>0.74 ± 0.02</td>
+      </tr>
+      <tr>
+        <td>Ridge Regression</td>
+        <td>0.72 ± 0.02</td>
+      </tr>
+      <tr>
+        <td>Lasso Regression</td>
+        <td>0.72 ± 0.02</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 
 The **best-performing model** was:
 - **Random Forest**
