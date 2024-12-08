@@ -34,22 +34,31 @@ Understanding the factors that drive user satisfaction with recipes can help che
 
 ## Data Cleaning
 
+
 ### Overview of Cleaning Steps
 
-To prepare the dataset for analysis, we applied the following data cleaning steps:
+To prepare the dataset for analysis, the following data cleaning steps were performed:
 
-1. **Handling Missing Values**:
-   - Replaced zero ratings in the `rating` column with `NaN` to reflect their missing nature.
-   - Removed rows with missing `review`, `tags`, or `calories` to ensure the analysis uses complete data.
+1. **Merging Datasets**:
+   - Combined two datasets using "recipe ID" as the key.
+   - Calculated the average rating for each recipe to create a new `rating_average` feature.
 
-2. **Converting Data Types**:
-   - Transformed the `nutrition` column (stored as strings) into Python lists for easy extraction of individual components (e.g., calories, fat).
-   - Converted `tags` from a string representation to a list of tags.
+2. **Handling Missing Values**:
+   - Replaced zero values in the `rating` column with `NaN` to indicate missing ratings.
+   - Removed rows with missing values in critical columns, such as `review`, `tags`, and `calories`, to ensure data completeness for analysis.
 
-3. **Feature Engineering**:
-   - Added new columns, such as:
-     - `review_length`: The number of words in each review.
-     - `num_tags`: The number of tags associated with each recipe.
+3. **Data Type Transformation**:
+   - Converted the `nutrition` column (originally a string) into a Python list to allow easy access to individual nutritional components (e.g., calories, fat).
+   - Transformed the `tags` column from a string format into a list of tags for better usability.
+
+4. **Feature Engineering**:
+   - Created additional features to enhance the dataset:
+     - `review_length`: Measured the word count of each review.
+     - `num_tags`: Counted the number of tags associated with each recipe.
+
+5. **Splitting Nutritional Data**:
+   - Extracted specific nutrients (e.g., calories, protein, fat, sugar) into separate columns to analyze their influence on recipe ratings.
+
 
 ## Visualization
 
@@ -74,12 +83,24 @@ Bivariate Analysis
     style="border: none;">
 </iframe>
 
+The majority of recipes have high ratings (4-5), indicating they are generally well-received.
+Low ratings (1-2) are rare, suggesting either fewer poor-quality recipes or under-reporting of negative experiences.
+The distribution is positively skewed, with a strong bias toward higher ratings.
+Variability is observed in the mid-range (3-4 ratings), indicating mixed feedback for average recipes.
+
 <iframe 
     src="img3.html" 
     width="1000" 
     height="600" 
     style="border: none;">
 </iframe>
+
+Across all rating categories, the median preparation time (log-transformed) is relatively consistent, suggesting that preparation time might not strongly influence a recipe's rating.
+Lower-rated recipes (categories 0-1 and 1-2) exhibit slightly more variability in preparation time, with some recipes requiring notably longer times.
+Higher-rated recipes (categories 4-5) show a tighter distribution, implying that recipes with more predictable preparation times tend to receive better ratings.
+Recipes that are too time-consuming may deter users, especially for lower-rated recipes.
+Focusing on optimizing preparation time for low-rated recipes could improve their reception.
+
 
 Specifically , here are what our cleaned data look like
 among those, relevant data only select the relevant cols in this analysis, and merged_data include all cols we have cleaned up.v
