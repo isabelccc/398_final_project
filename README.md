@@ -52,9 +52,52 @@ The percentage of the daily value of protein provided by the recipe.
 
 
 ## Data Cleaning and Exploratory Data Analysis
-- Visualizations
-- Data cleaning steps
-- Interactive plots
+---
+title: "Data Cleaning"
+layout: page
+permalink: /data-cleaning/
+---
+
+# Data Cleaning
+
+## Overview of Cleaning Steps
+
+To prepare the dataset for analysis, we applied the following data cleaning steps:
+
+1. **Handling Missing Values**:
+   - Replaced zero ratings in the `rating` column with `NaN` to reflect their missing nature.
+   - Removed rows with missing `review`, `tags`, or `calories` to ensure the analysis uses complete data.
+
+2. **Converting Data Types**:
+   - Transformed the `nutrition` column (stored as strings) into Python lists for easy extraction of individual components (e.g., calories, fat).
+   - Converted `tags` from a string representation to a list of tags.
+
+3. **Feature Engineering**:
+   - Added new columns, such as:
+     - `review_length`: The number of words in each review.
+     - `num_tags`: The number of tags associated with each recipe.
+
+## Head of Cleaned DataFrame
+
+# Generate Markdown representations for the DataFrame heads
+relevant_data_head = relevant_data.head().to_markdown(index=False)
+merged_data_head = merged_data.head().to_markdown(index=False)
+
+# Create the Markdown content
+markdown_content = f"""
+# Data Cleaning
+
+## Relevant Data Head
+
+Below is the head of the cleaned relevant data:
+
+```markdown
+
+{relevant_data_head}
+
+{merged_data_head}
+
+
 
 ## Prediction Problem
 - Problem type: Classification/Regression
