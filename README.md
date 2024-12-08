@@ -32,7 +32,7 @@ Understanding the factors that drive user satisfaction with recipes can help che
 
 ---
 
-## Data Cleaning
+### Data Cleaning: Preparing the Ingredients
 
 
 ### Overview of Cleaning Steps
@@ -62,7 +62,7 @@ To prepare the dataset for analysis, the following data cleaning steps were perf
 
 ## Visualization
 
-Univariate Analysis
+Univariate Analysis: Individual Recipe Insights
 <iframe 
     src="image1.html" 
     width="1000" 
@@ -74,7 +74,8 @@ The most common tags, such as "preparation," "time-to-make," and "course," are g
 Tags like "main-ingredient" and "dietary" are prominent, indicating that recipes are often classified based on their primary components or dietary considerations. This aligns with the importance of catering to specific dietary needs (e.g., vegetarian, gluten-free) in recipe datasets.
 The tags "easy" and "occasion" highlight that simplicity and context (e.g., festive or special events) are important aspects of recipe selection. These attributes may reflect users' preferences for quick and contextually appropriate dishes.
 
-Bivariate Analysis
+Bivariate Analysis: Relationships Between Recipe Attributes
+
 
 <iframe 
     src="image2.html" 
@@ -136,16 +137,12 @@ Below is a sample of the merged dataset:
 
 
 
-# Create the Markdown content
-markdown_content = f"""
-# Data Cleaning
+### Cleaned Data display
 
 ## Relevant Data Head
 
 Below is the head of the cleaned relevant data:
 
-```markdown
-{relevant_data_head}
 
 
 
@@ -174,6 +171,7 @@ The primary evaluation metric for this regression problem is **Root Mean Squared
 
 ---
 
+
 ### Features Used
 
 **Numerical Features**:
@@ -191,38 +189,194 @@ The primary evaluation metric for this regression problem is **Root Mean Squared
 
 ---
 
-## Results
+### choose the right model
 
-### Step 4: Baseline Model
+# Model Selection and Evaluation
 
-#### Features Used
-
-- **`n_steps`** (quantitative)
-- **`tags`** (nominal, one-hot encoded)
-
-#### Baseline Model Results
-
-- **Training RMSE**: `0.74`
-- **Test RMSE**: `0.78`
+## Objective
+The goal was to identify the best model for predicting the average rating of recipes (`rating_average`) using the cleaned and preprocessed dataset. To achieve this, we tested a variety of regression models and evaluated their performance using cross-validation and test set evaluation.
 
 ---
 
-### Step 5: Final Model
+## Models Tested
+We compared the following models to determine the best-performing one:
+1. **Random Forest Regressor**: A robust ensemble-based model that reduces overfitting using bagging and feature randomness.
+2. **Gradient Boosting Regressor**: An ensemble technique that builds models sequentially to correct errors of prior models.
+3. **Support Vector Regressor (SVR)**: A kernel-based regression technique designed for smaller datasets with high complexity.
+4. **Ridge Regression**: A linear regression model with L2 regularization to prevent overfitting.
+5. **Lasso Regression**: A linear regression model with L1 regularization for feature selection.
+6. **Linear Regression**: A simple regression model without regularization.
 
-#### Features Added
+---
 
-- **`review_length`**
-- **`minutes`**
-- Nutritional features: `total_fat_pdv`, `sugar_pdv`, `protein_pdv`, `calories`
+## Feature Selection
+The following features were used as predictors:
+- **Numerical Features**:
+  - `minutes`: Time required to prepare the recipe.
+  - `n_steps`: Number of steps in the recipe.
+  - `num_tags`: Number of tags associated with the recipe.
+  - `review_length`: Length of user reviews (in words).
+  - Nutritional details: `calories`, `total_fat_pdv`, `sugar_pdv`, `protein_pdv`.
+- **Categorical Features**:
+  - `tags`: A list of tags describing the recipe.
 
-#### Final Model Results
+Numerical features were standardized using `StandardScaler`.
+
+---
+
+## Methodology
+1. **Data Sampling**:
+   - To speed up computation, we subsampled **20% of the dataset** while retaining the overall distribution.
+
+2. **Data Splitting**:
+   - The data was split into **80% training** and **20% test** sets using `train_test_split`.
+
+3. **Cross-Validation**:
+   - Each model was evaluated using **3-fold cross-validation** on the training set. 
+   - Cross-validation scores were calculated using **Root Mean Squared Error (RMSE)**, which penalizes larger errors more heavily than Mean Absolute Error (MAE).
+   - For each model, we computed the **mean RMSE** and the **standard deviation** of RMSE across the folds.
+
+4. **Model Selection**:
+   - The model with the **lowest mean RMSE** across the cross-validation folds was selected as the best model.
+
+---
+
+## Results of Cross-Validation
+| Model                 | Mean RMSE ± Std Dev |
+|------------------------|---------------------|
+| Random Forest          | 0.71 ± 0.01        |
+| Gradient Boosting      | 0.72 ± 0.02        |
+| Support Vector Regressor (SVR) | 0.74 ± 0.02 |
+| Ridge Regression       | 0.72 ± 0.02        |
+| Lasso Regression       | 0.72 ± 0.02        |
+| Linear Regression      | 0.72 ± 0.02        |
+
+The **best-performing model** was:
+- **Random Forest**
+- **Mean RMSE**: 0.71
+- **Standard Deviation of RMSE**: 0.01
+
+
+
+The ** Random Forest ** was selected as the best model for predicting recipe ratings based on its superior performance in cross-validation and test set evaluation. The low RMSE and high R² score indicate that the model captures the variability in the data effectively. This model can now be used for further predictions or integrated into a recommendation system.
+
+
+
+# Baseline Model: A Foundation to Build On
+
+## Objective
+The baseline model aims to establish a reference performance using the cleaned dataset. This step serves as a foundation for comparing and improving upon the model in subsequent iterations.
+
+---
+
+## Features Used
+For simplicity and interpretability, only the following **numerical features** were used:
+- **`minutes`**: Time required to prepare the recipe.
+- **`n_steps`**: Number of steps in the recipe.
+- **`num_tags`**: Number of tags associated with the recipe.
+- **`review_length`**: Length of user reviews (in words).
+
+These features were standardized using `StandardScaler`.
+
+---
+
+## Methodology
+
+1. **Data Splitting**:
+   - The dataset was divided into **60% training data** and **40% test data** using `train_test_split`.
+
+2. **Subsampling**:
+   - To reduce computation time, **20% of the training data** was randomly sampled to train the model. This allows the model to learn efficiently while retaining representativeness.
+
+3. **Model Selection**:
+   - A **RandomForest Regressor** was used as the baseline model due to its robustness and ability to handle feature interactions automatically.
+
+4. **Pipeline Construction**:
+   - A `Pipeline` was created to combine the preprocessing steps (scaling numerical features) with the model. This ensures consistent preprocessing during training and testing.
+
+5. **Evaluation Metric**:
+   - The model's performance was evaluated using **Root Mean Squared Error (RMSE)**, which penalizes larger errors more heavily, making it a suitable metric for regression tasks.
+
+---
+
+## Results
+
+- **Baseline RMSE (RandomForest Regression)**: `0.74`
+
+---
+
+
+The baseline model provides a benchmark RMSE of `0.74`. This indicates that the model has reasonable predictive capability but leaves room for optimization and improvement. Future steps will explore additional features, fine-tune hyperparameters, and test more advanced models to improve performance.
+
+
+# Final Model: Elevating Predictions
+
+## Objective
+The final model incorporates additional features and hyperparameter tuning to improve performance over the baseline model. The goal is to minimize the prediction error (measured by RMSE) on the test dataset.
+
+---
+
+## Features Added
+To enhance the predictive power of the model, the following features were included:
+- **`review_length`**: The number of words in the review, reflecting user engagement.
+- **`minutes`**: Recipe preparation time.
+- **Nutritional Features**:
+  - **`calories`**: The calorie content of the recipe.
+  - **`total_fat_pdv`**: Percentage daily value of fat.
+  - **`sugar_pdv`**: Percentage daily value of sugar.
+  - **`protein_pdv`**: Percentage daily value of protein.
+- **`tags`**: Recipe tags, filtered to retain the top 10 most frequent tags and group others under "Other".
+
+---
+
+## Methodology
+
+### 1. **Data Preprocessing**
+- **Numerical Features**:
+  - Standardized using `StandardScaler` to normalize their ranges.
+- **Categorical Features**:
+  - Encoded using `OneHotEncoder` for the top 10 tags, while infrequent tags were replaced with "Other".
+
+### 2. **Hyperparameter Tuning**
+- The model was fine-tuned using **RandomizedSearchCV** on the following hyperparameters:
+  - Number of estimators (`n_estimators`): [50, 100, 200]
+  - Maximum tree depth (`max_depth`): [10, 20, 30]
+  - Minimum samples for a split (`min_samples_split`): [2, 5, 10]
+  - Minimum samples per leaf (`min_samples_leaf`): [1, 2, 4]
+- A 3-fold cross-validation was used to select the best parameters based on negative mean squared error (MSE).
+
+### 3. **Model Training**
+- The best model identified through hyperparameter tuning was a **RandomForest Regressor**.
+- The final model was trained on the full training dataset and evaluated on the test dataset.
+
+---
+
+## Results
 
 | Metric              | Baseline Model | Final Model |
 |---------------------|----------------|-------------|
 | **RMSE**            | 0.74          | 0.70        |
 
+- **Best Hyperparameters**:
+  - `n_estimators`: 200
+  - `max_depth`: 20
+  - `min_samples_split`: 5
+  - `min_samples_leaf`: 2
 
 ---
+
+## Insights and Improvements
+- The **final model** achieved a **4-point improvement in RMSE** over the baseline model, reducing the error to 0.70. This demonstrates the importance of including additional relevant features and fine-tuning hyperparameters.
+- The inclusion of nutritional features (e.g., calories, protein) and categorical tags significantly contributed to the improved performance, as these features provide valuable context for predicting recipe ratings.
+
+---
+
+## Conclusion
+The final model, a **RandomForest Regressor** with optimized hyperparameters, demonstrates robust performance in predicting recipe ratings. Future improvements could explore:
+- Incorporating NLP features from review text.
+- Leveraging deeper feature engineering for categorical variables.
+- Testing additional ensemble models like Gradient Boosting or XGBoost.
+
 
 
 
